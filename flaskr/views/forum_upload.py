@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, abort, request
+from flask import Blueprint, render_template, abort, request, redirect
 from flaskr.api.functions import get_current_user, get_random_string
 from flaskr.forms import Upload_image_form
 from werkzeug import secure_filename
@@ -12,6 +12,9 @@ forum_upload = Blueprint('forum_upload', __name__,
 @forum_upload.route('/forum/upload', methods=['POST','GET'])
 def _forum_upload():
     current_user = get_current_user()
+
+    if current_user is None:
+        return redirect('/')
 
     form = Upload_image_form(csrf_enabled=False)
 

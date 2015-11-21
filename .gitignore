@@ -3,8 +3,8 @@ config.yml
 *cache*
 *egg*
 *.sqlite
-upload/image/*.jpg
-upload/image/*.png
-upload/image/*.jpeg
-upload/image/*.gif
-upload/image/*.bmp
+flaskr/static/upload/image/*.jpg
+flaskr/static/upload/image/*.png
+flaskr/static/upload/image/*.jpeg
+flaskr/static/upload/image/*.gif
+flaskr/static/upload/image/*.bmp

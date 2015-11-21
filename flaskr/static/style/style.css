@@ -141,4 +141,19 @@
       cursor: pointer;
       transition: .3s; }
 
+.view-gallery {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+  .view-gallery .gallery-image {
+    width: 128px;
+    height: 128px;
+    background-size: cover;
+    background-position: center;
+    background-color: black;
+    margin: 4px; }
+
 /*# sourceMappingURL=style.css.map */
