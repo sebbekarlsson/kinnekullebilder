@@ -28,6 +28,10 @@
 .right {
   float: right; }
 
+.site-logo {
+  width: 32px;
+  display: inline; }
+
 .form {
   width: 100%; }
   .form section {
