@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel='stylesheet' type='text/css' href='{{ url_for("static", filename="style/style.css") }}'
+        <link href='https://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
+        <link rel='stylesheet' type='text/css' href='{{ url_for("static", filename="style/style.css") }}'>
         {% block head %}{% endblock %}
     </head>
     <body>
         <nav class='nav-bar'>
+            <ul class='left'>
+                <li><a class='nav-btn' href='/'><span>Kinnekullebilder</span></a></li>
+            </ul>
+            <ul class='right'>
+                <li><a class='nav-btn'><span>Registrera</span></a></li>
+                <li><a class='nav-btn'><span>Logga in</span></a></li>
+            </ul>
         </nav>
         <div id='content'>
             {% block content %}{% endblock %}
