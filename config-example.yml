@@ -1,0 +1,5 @@
+# Rename this to config.yml
+
+flaskr:
+    debug: True
+    host: 'localhost'
