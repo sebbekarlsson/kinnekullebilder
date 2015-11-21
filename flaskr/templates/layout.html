@@ -11,8 +11,14 @@
                 <li><a class='nav-btn' href='/'><span>Kinnekullebilder</span></a></li>
             </ul>
             <ul class='right'>
-                <li><a class='nav-btn' href='/register'><span>Registrera</span></a></li>
-                <li><a class='nav-btn'><span>Logga in</span></a></li>
+                {% if current_user is none %}
+                    <li><a class='nav-btn' href='/register'><span>Registrera</span></a></li>
+                    <li><a class='nav-btn' href='/login'><span>Logga in</span></a></li>
+                {% else %}
+                    <li><a class='nav-btn' href='/'><span>{{ current_user.first_name }}</span></a></li>
+                    <li><a class='nav-btn' href='/forum'><span>Forum</span></a></li>
+                    <li><a class='nav-btn' href='/logout'><span>Logga out</span></a></li>
+                {% endif %}
             </ul>
         </nav>
         <div id='content'>

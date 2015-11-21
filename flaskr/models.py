@@ -25,7 +25,7 @@ class Data():
 class User(Base, Data):
     __tablename__ = 'users'
     id = sa.Column(sa.Integer, primary_key=True)
-    email = sa.Column(sa.String(128))
+    email = sa.Column(sa.String(128), unique=True)
     first_name = sa.Column(sa.String(128))
     last_name = sa.Column(sa.String(128))
     password = sa.Column(sa.String(128))
