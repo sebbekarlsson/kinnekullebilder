@@ -15,15 +15,62 @@
     .nav-bar ul .nav-btn, .nav-bar li .nav-btn {
       font-size: 100%;
       text-decoration: none;
-      color: white; }
+      color: white;
+      transition: .3s; }
       .nav-bar ul .nav-btn:hover, .nav-bar li .nav-btn:hover {
         cursor: pointer;
-        color: #404040; }
+        color: #404040;
+        transition: .3s; }
 
 .left {
   float: left; }
 
 .right {
   float: right; }
+
+.form {
+  width: 100%; }
+  .form section {
+    padding: 12px; }
+  .form input[type='text'], .form input[type='email'], .form input[type='password'] {
+    height: 32px;
+    background-color: transparent;
+    outline: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: lightgray;
+    width: 100%; }
+  .form input[type='submit'] {
+    height: 32px;
+    line-height: 32px;
+    background-color: #404040;
+    color: white;
+    outline: none;
+    border: none;
+    padding-left: 4px;
+    padding-right: 4px;
+    transition: .3s; }
+    .form input[type='submit']:hover {
+      cursor: pointer;
+      background-color: #a0d257;
+      transition: .3s; }
+
+.text {
+  width: 100%;
+  padding: 12px; }
+  .text section {
+    padding: 12px; }
+    .text section p {
+      margin-bottom: 8px; }
+
+.view_split {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row; }
 
 /*# sourceMappingURL=style.css.map */

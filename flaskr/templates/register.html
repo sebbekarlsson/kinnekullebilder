@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+{% from "_formhelpers.html" import render_field %}
+
+
+{% block content %}
+    <div class='view_split'>
+        <form class='form' method='POST'>
+            <section>
+                <h2>Registrera</h2>
+            </section>
+            <section>
+                {{form.hidden_tag()}}
+                {{ render_field(form.first_name) }}
+                {{ render_field(form.last_name) }}
+                {{ render_field(form.email) }}
+                {{ render_field(form.password) }}
+                {{ render_field(form.password_confirm) }}
+            </section>
+            {% if msg is not none %}
+                <section>
+                    {{ msg | safe }}
+                </section>
+            {% endif %}
+            <section>
+                {{ render_field(form.submit) }}
+            </section>
+        </form>
+        <div class='text'>
+            <section>
+                <p>
+                    <h2>Registrering</h2>
+                    Genom att registrera så får du möjlighet att publicera bilder, skriva kommentarer och liknande
+                    som innebär att du kan interagera med webbsidan.
+                </p>
+            </section>
+            <section>
+                <p>
+                    <h2>Ansvar</h2>
+                    Att registrera innebär även ansvar.
+                    Du får under inga omständigheter skriva kränkande saker eller ladda upp olämpliga bilder eller poster i olika slag.
+                </p>
+                <p>
+                    Skulle du under några som helst omständigheter bryta mot ansvaren så kommer du antingen bli permament avstängd från webbsidan
+                    eller tillfälligt nerstängd.
+                </p>
+            </section>
+            <section>
+                <p>
+                    <h2>Välkommen</h2>
+                    <p>
+                        Vi önskar dig mycket nöje här på kinnekullebilder.
+                        Använd formuläret för att registrera.
+                    </p>
+                </p>
+            </section>
+        </form>
+    </div>
+{% endblock %}
