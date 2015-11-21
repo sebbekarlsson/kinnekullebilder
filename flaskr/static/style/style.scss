@@ -1,4 +1,15 @@
+$green: #a0d257;
+$black: #404040;
+
+
 * {
     margin: 0;
     padding: 0;
+}
+
+.nav-bar {
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    background-color: $green;
 }
