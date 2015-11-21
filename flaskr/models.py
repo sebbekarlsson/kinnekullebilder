@@ -29,6 +29,31 @@ class User(Base, Data):
     first_name = sa.Column(sa.String(128))
     last_name = sa.Column(sa.String(128))
     password = sa.Column(sa.String(128))
+    image_id = sa.Column(sa.Integer, sa.ForeignKey('images.id'))
+
+
+class Place(Base, Data):
+    __tablename__ = 'places'
+    id = sa.Column(sa.Integer, primary_key=True)
+    name = sa.Column(sa.String(256), unique=True)
+
+
+class Image(Base, Data):
+    __tablename__ = 'images'
+    id = sa.Column(sa.Integer, primary_key=True)
+    filename = sa.Column(sa.String(256), unique=True)
+    place_id = sa.Column(sa.String(256), sa.ForeignKey('places.id'))
+    user_id = sa.Column(sa.Integer, sa.ForeignKey('users.id'))
+    title = sa.Column(sa.String(256))
+    description = sa.Column(sa.String(1080))
+
+
+class Comment(Base, Data):
+    __tablename__ = 'comments'
+    id = sa.Column(sa.Integer, primary_key=True)
+    image_id = sa.Column(sa.Integer, sa.ForeignKey('images.id'))
+    user_id = sa.Column(sa.Integer, sa.ForeignKey('users.id'))
+    text = sa.Column(sa.String(700))
 
 
 def initialize_database():

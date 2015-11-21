@@ -61,6 +61,17 @@
       cursor: pointer;
       background-color: #a0d257;
       transition: .3s; }
+  .form textarea {
+    width: 100%;
+    min-height: 92px;
+    height: auto;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: lightgray;
+    background-color: transparent; }
 
 .text {
   width: 100%;
@@ -70,11 +81,40 @@
     .text section p {
       margin-bottom: 8px; }
 
-.view_split {
+.view-split {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
   flex-direction: row; }
+  .view-split .left-menu {
+    width: 25%;
+    border-right-color: lightgray;
+    border-right-width: 1px;
+    border-right-style: solid;
+    height: 100vh; }
+    .view-split .left-menu ul, .view-split .left-menu li {
+      width: 100%;
+      list-style: none; }
+      .view-split .left-menu ul .menu-btn, .view-split .left-menu li .menu-btn {
+        display: block;
+        width: 100%;
+        height: 48px;
+        line-height: 48px;
+        font-size: 100%;
+        color: #404040;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-color: lightgray;
+        transition: .3s; }
+        .view-split .left-menu ul .menu-btn span, .view-split .left-menu li .menu-btn span {
+          padding-left: 8px; }
+        .view-split .left-menu ul .menu-btn:hover, .view-split .left-menu li .menu-btn:hover {
+          background-color: #404040;
+          color: #a0d257;
+          cursor: pointer;
+          transition: .3s; }
+  .view-split .content {
+    width: 100%; }
 
 /*# sourceMappingURL=style.css.map */

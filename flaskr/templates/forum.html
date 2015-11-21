@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<div class='view-split'>
+    <div class='left-menu'>
+        <ul>
+            <li><a class='menu-btn'><span>Platser</span></a></li>
+            <li><a class='menu-btn'><span>Ladda upp</span></a></li>
+        </ul>
+    </div>
+    <div class='content'>
+        {% block forumContent %}{% endblock %}
+    </div>
+</div>
+
+{% endblock %}

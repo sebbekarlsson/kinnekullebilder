@@ -31,5 +31,7 @@ def _login():
                 session['user_id'] = real_user.id
 
                 return redirect('/')
+            else:
+                msg = 'Fel lösenord'
 
     return render_template('login.html', current_user=current_user, form=form, msg=msg)

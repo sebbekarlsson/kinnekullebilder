@@ -6,6 +6,8 @@ from flaskr.views.index import index
 from flaskr.views.register import register
 from flaskr.views.login import login
 from flaskr.views.logout import logout
+from flaskr.views.forum import forum
+from flaskr.views.forum_upload import forum_upload
 
 from flaskr.models import initialize_database
 
@@ -16,6 +18,8 @@ app.register_blueprint(index)
 app.register_blueprint(register)
 app.register_blueprint(login)
 app.register_blueprint(logout)
+app.register_blueprint(forum)
+app.register_blueprint(forum_upload)
 
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 

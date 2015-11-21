@@ -1,0 +1,22 @@
+{% extends 'forum.html' %}
+{% from "_formhelpers.html" import render_field %}
+
+
+{% block forumContent %}
+    <div class='form' method='POST' enctype='multipart/form-data'>
+        <section>
+            <h2>Ladda upp bild</h2>
+        </section>
+        <section>
+            {{ render_field(form.title) }}
+            {{ render_field(form.description) }}
+            {{ render_field(form.place) }}
+        </section>
+        <section>
+            {{ render_field(form.image) }}
+        </section>
+        <section>
+            {{ render_field(form.submit) }}
+        </section>
+    </div>
+{% endblock%}
