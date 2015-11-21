@@ -1,0 +1,13 @@
+{% extends 'forum.html' %}
+{% from "_formhelpers.html" import render_field %}
+
+
+{% block forumContent %}
+
+<ul class='list'>
+    {% for place in places %}
+        <li><a href='/forum/images/places/{{ place.name }}'><span>{{ place.name }}</span></a></li>
+    {% endfor %}
+</ul>
+    
+{% endblock%}

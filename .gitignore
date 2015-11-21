@@ -3,3 +3,8 @@ config.yml
 *cache*
 *egg*
 *.sqlite
+upload/image/*.jpg
+upload/image/*.png
+upload/image/*.jpeg
+upload/image/*.gif
+upload/image/*.bmp

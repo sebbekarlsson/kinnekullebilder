@@ -3,7 +3,7 @@
 
 
 {% block forumContent %}
-    <div class='form' method='POST' enctype='multipart/form-data'>
+    <form class='form' method='post' enctype='multipart/form-data'>
         <section>
             <h2>Ladda upp bild</h2>
         </section>
@@ -18,5 +18,10 @@
         <section>
             {{ render_field(form.submit) }}
         </section>
-    </div>
+        {% if msg is not none %}
+            <section>
+                <p>{{ msg }}</p>
+            </section>
+        {% endif %}
+    </form>
 {% endblock%}

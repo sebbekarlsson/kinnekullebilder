@@ -1,5 +1,4 @@
 {% macro render_field(field) %}
-  <dt>
   <dd>{{ field(placeholder=field.label.text)|safe }}
   {% if field.errors %}
     <ul class=errors>

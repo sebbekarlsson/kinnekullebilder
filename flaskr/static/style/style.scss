@@ -140,6 +140,7 @@ $black: #404040;
                 border-bottom-style: solid;
                 border-bottom-width: 1px;
                 border-bottom-color: lightgray;
+                text-decoration: none;
                 transition: .3s;
 
                 span {
@@ -158,5 +159,39 @@ $black: #404040;
 
     .content {
         width: 100%;
+    }
+}
+
+.list {
+    display: block;
+    width: 100%;
+    list-style: none;
+
+    li {
+
+        a {
+            display: block;
+            height: 32px;
+            line-height: 32px;
+            width: 100%;
+            color: $black;
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-bottom-color: lightgray;
+            text-decoration: none;
+            transition: .3s;
+
+            span {
+                padding-left: 8px;
+            }
+
+            &:hover {
+                background-color: $black;
+                color: $green;
+                cursor: pointer;
+                transition: .3s;
+            }
+        }
+        
     }
 }

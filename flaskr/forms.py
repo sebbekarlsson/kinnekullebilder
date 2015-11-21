@@ -25,8 +25,8 @@ class Upload_image_form(Form):
     title = TextField('Titel', [validators.Length(min=2, max=25)])
     place = TextField('Plats, vart var fotot taget?', [validators.Length(min=2, max=25)])
     description = TextAreaField('Beskrivning', [validators.Length(min=2, max=1000)])
-    image = FileField('image', validators=[
-        FileRequired(),
-        FileAllowed(['jpg', 'png'], 'Du kan enbart ladda upp [jpg, png] filer!')
+    image = FileField('Foto', [
+        validators.Required(),
+         FileAllowed(['jpg', 'jpeg', 'gif', 'png'], 'Du kan bara ladda upp bilder!')
     ])
     submit = SubmitField('Ladda upp')
