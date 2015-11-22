@@ -28,6 +28,17 @@ def _forum_images_places(place):
 
     images = sess.query(Image, Place).filter(Place.name==place).join(Place).order_by(Image.created.desc()).all()
 
-    print(images)
 
     return render_template('forum_images.html', current_user=current_user, images=images)
+
+
+@forum_images.route('/forum/images/image/<image_id>', methods=['POST','GET'])
+def _forum_images_image(image_id):
+    current_user = get_current_user()
+
+    if current_user is None:
+        return redirect('/')
+
+    image = sess.query(Image, Place).filter(Image.id==image_id).join(Place).first()
+
+    return render_template('forum_image.html', current_user=current_user, image=image)

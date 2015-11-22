@@ -1,0 +1,10 @@
+{% extends 'forum.html' %}
+{% from "_formhelpers.html" import render_field %}
+
+
+{% block forumContent %}
+
+<div class='image-view' style='background-image: url({{ url_for("static", filename="upload/image/" + image[0].filename) }});'>
+</div>
+    
+{% endblock%}
