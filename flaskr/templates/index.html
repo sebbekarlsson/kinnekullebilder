@@ -1,4 +1,39 @@
 {% extends 'layout.html' %}
 {% block content %}
-<h1> Kinnekullebilder.com </h1>
+
+<div class='view-split'>
+    <section class='text half'>
+        <section>
+            <section>
+                <h2>Välkommen till Kinnekullebilder</h2>
+                <p>Bilder och foton runt om Kinnekulle</p>
+            </section>
+            <section>
+                <h2>Publicera</h2>
+                <p>
+                    På den här webbsidan får vem som helst publicera foton.
+                    Allt som krävs är att du registrerar ett konto.
+                    Genom att registrera ett konto så får du möjligheten att publicera foton och kommentera
+                    andras foton.
+                </p>
+            </section>
+        </section>
+    </section>
+    <section>
+        <div class='text'>
+            <section>
+                <h2>Senaste inlägg</h2>
+            </section>
+            <section>
+                <div class='view-gallery'>
+                    {% for image in images %}
+                        <a href='/forum/images/image/{{ image[0].id }}'><div class='gallery-image' style='background-image: url("{{ url_for("static", filename="upload/image/" + image[0].filename) }}");'>
+                        </div></a>
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+    </section>
+</div>
+
 {% endblock %}

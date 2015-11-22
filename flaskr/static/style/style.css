@@ -146,6 +146,7 @@ body {
       transition: .3s; }
 
 .view-gallery {
+  width: 100%;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -167,5 +168,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-color: black; }
+
+.half {
+  width: 50% !important; }
 
 /*# sourceMappingURL=style.css.map */
