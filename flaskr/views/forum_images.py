@@ -63,8 +63,6 @@ def _forum_images_image(image_id):
                     selected_comment_id = request.form['comment_selected']
                     selected_comment = sess.query(Comment).filter(Comment.id==selected_comment_id).delete()
                     sess.commit()
-                
-
 
         comments = sess.query(Comment, User).filter(Comment.image_id==image.id).order_by(Comment.created.desc()).join(User).all()
 
