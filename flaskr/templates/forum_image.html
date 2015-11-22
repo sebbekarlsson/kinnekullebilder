@@ -4,7 +4,18 @@
 
 {% block forumContent %}
 
-<div class='image-view' style='background-image: url({{ url_for("static", filename="upload/image/" + image[0].filename) }});'>
+<div class='image-view' style='background-image: url({{ url_for("static", filename="upload/image/" + image.filename) }});'>
+</div>
+<div class='text'>
+    <section>
+        <h2>{{ image.title }}</h2>
+        <p>{{ image.description }}</p>
+    </section>
+    <section>
+        <p>
+            <i>Uppladdad av: {{ uploader.first_name }} {{ uploader.last_name }}</i>
+        </p>
+    </section>
 </div>
     
 {% endblock%}

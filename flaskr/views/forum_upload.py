@@ -22,7 +22,7 @@ def _forum_upload():
 
     if form.validate_on_submit():
         title = form.title.data
-        description = form.title.description
+        description = form.description.data
         place = form.place.data
 
         old_place = sess.query(Place).filter(Place.name==place).first()

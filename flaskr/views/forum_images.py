@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, abort, request, redirect
 from flaskr.api.functions import get_current_user
 
-from flaskr.models import sess, Image, User, Place
+from flaskr.models import sess, Image, User, Place, Comment
 
 
 forum_images = Blueprint('forum_images', __name__,
@@ -39,6 +39,12 @@ def _forum_images_image(image_id):
     if current_user is None:
         return redirect('/')
 
-    image = sess.query(Image, Place).filter(Image.id==image_id).join(Place).first()
+    comments = None
 
-    return render_template('forum_image.html', current_user=current_user, image=image)
+    image = sess.query(Image).filter(Image.id==image_id).first()
+
+    if image is not None:
+        comments = sess.query(Comment).filter(Comment.id==image.id).all()
+        uploader = sess.query(User).filter(User.id==image.user_id).first()
+
+    return render_template('forum_image.html', current_user=current_user, image=image, comments=comments, uploader=uploader)
