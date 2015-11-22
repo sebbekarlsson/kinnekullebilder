@@ -30,3 +30,8 @@ class Upload_image_form(Form):
          FileAllowed(['jpg', 'jpeg', 'gif', 'png'], 'Du kan bara ladda upp bilder!')
     ])
     submit = SubmitField('Ladda upp')
+
+
+class Comment_form(Form):
+    text = TextField('Skriv en kommentar', [validators.Length(min=2, max=400)])
+    submit = SubmitField('Skicka')

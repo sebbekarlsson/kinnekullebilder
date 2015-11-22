@@ -8,6 +8,10 @@ $black: #404040;
     font-family: 'Asap', sans-serif;
 }
 
+body {
+    min-height: 100%;
+}
+
 .nav-bar {
     width: 100%;
     height: 48px;
@@ -118,13 +122,14 @@ $black: #404040;
     display: -ms-flexbox;
     display: flex;
     flex-direction: row;
+    min-height: 100vh;
 
     .left-menu {
         width: 25%;
         border-right-color: lightgray;
         border-right-width: 1px;
         border-right-style: solid;
-        height: 100vh;
+        min-height: 100vh;
 
         ul, li {
             width: 100%;

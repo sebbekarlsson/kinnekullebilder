@@ -16,6 +16,34 @@
             <i>Uppladdad av: {{ uploader.first_name }} {{ uploader.last_name }}</i>
         </p>
     </section>
+    <section>
+        <form class='form' method='POST'>
+            <section>
+                <h2>Kommentera</h2>
+            </section>
+            <section>
+                {{ render_field(form.text) }}
+            </section>
+            <section>
+                {{ render_field(form.submit) }}
+            </section>
+        </form>
+    </section>
+    {% if comments is not none %}
+        <section>
+            <h2>Kommentarer</h2>
+            {% for comment in comments %}
+                <div class='text'>
+                    <section>
+                        <h4>{{ comment[1].first_name }}  {{ comment[1].last_name }}</h4>
+                        <section>
+                            <p>{{ comment[0].text }}</p>
+                        </section>
+                    </section>
+                </div>
+            {% endfor %}
+        </section>
+    {% endif %}
 </div>
     
 {% endblock%}
