@@ -13,7 +13,7 @@
     </section>
     <section>
         <p>
-            <i>Uppladdad av: {{ uploader.first_name }} {{ uploader.last_name }}</i><br>
+            <i>Uppladdad av: <a href='/forum/profile/{{ uploader.id }}'>{{ uploader.first_name }} {{ uploader.last_name }}</a></i><br>
             <i>Plats: {{ place.name }}</i>
         </p>
     </section>
@@ -36,7 +36,7 @@
             {% for comment in comments %}
                 <div class='text'>
                     <section>
-                        <h4>{{ comment[1].first_name }}  {{ comment[1].last_name }}</h4>
+                        <h4><a href='/forum/profile/{{ comment[1].id }}'>{{ comment[1].first_name }}  {{ comment[1].last_name }}</a></h4>
                         <section>
                             <p>{{ comment[0].text }}</p>
                         </section>
