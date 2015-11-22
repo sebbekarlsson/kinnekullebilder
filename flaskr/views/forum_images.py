@@ -49,6 +49,7 @@ def _forum_images_image(image_id):
 
     if image is not None:
         uploader = sess.query(User).filter(User.id==image.user_id).first()
+        place = sess.query(Place).filter(Place.id==image.place_id).first()
 
         if request.method == 'POST':
             if 'submit' in request.form:
@@ -66,4 +67,4 @@ def _forum_images_image(image_id):
 
         comments = sess.query(Comment, User).filter(Comment.image_id==image.id).order_by(Comment.created.desc()).join(User).all()
 
-    return render_template('forum_image.html', current_user=current_user, image=image, comments=comments, uploader=uploader, form=form)
+    return render_template('forum_image.html', current_user=current_user, image=image, place=place, comments=comments, uploader=uploader, form=form)
