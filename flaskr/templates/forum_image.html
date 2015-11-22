@@ -29,7 +29,7 @@
             </section>
         </form>
     </section>
-    {% if comments is not none %}
+    {% if comments|length > 0 %}
         <section>
             <h2>Kommentarer</h2>
             {% for comment in comments %}
@@ -39,6 +39,14 @@
                         <section>
                             <p>{{ comment[0].text }}</p>
                         </section>
+                        {% if current_user.id == comment[1].id %}
+                            <section>
+                                <form class='form' method='POST'>
+                                    <input type='hidden' name='comment_selected' value='{{ comment[0].id }}'>
+                                    <input type='submit' name='submit' value='Förkasta'>
+                                </form>
+                            </section>
+                        {% endif %}
                     </section>
                 </div>
             {% endfor %}

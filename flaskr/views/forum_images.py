@@ -43,21 +43,28 @@ def _forum_images_image(image_id):
     if current_user is None:
         return redirect('/')
 
-    comments = None
+    comments = []
 
     image = sess.query(Image).filter(Image.id==image_id).first()
 
     if image is not None:
         uploader = sess.query(User).filter(User.id==image.user_id).first()
 
-        if form.validate_on_submit():
-            comment_text = form.text.data
+        if request.method == 'POST':
+            if 'submit' in request.form:
+                if request.form['submit'] == 'Skicka':
+                    if form.validate_on_submit():
+                        comment_text = form.text.data
+                        new_comment = Comment(text=comment_text, image_id=image.id, user_id=current_user.id)
+                        sess.add(new_comment)
+                        sess.commit()
+                        form.text.data = None
+                elif request.form['submit'] == 'Förkasta':
+                    selected_comment_id = request.form['comment_selected']
+                    selected_comment = sess.query(Comment).filter(Comment.id==selected_comment_id).delete()
+                    sess.commit()
+                
 
-            new_comment = Comment(text=comment_text, image_id=image.id, user_id=current_user.id)
-            sess.add(new_comment)
-            sess.commit()
-
-            form.text.data = None
 
         comments = sess.query(Comment, User).filter(Comment.image_id==image.id).order_by(Comment.created.desc()).join(User).all()
 
