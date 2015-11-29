@@ -1,0 +1,9 @@
+[Unit]
+Description=Kinnekullebilder Service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/var/www/html/kinnekullebilder
+ExecStart=/usr/bin/uwsgi/ --ini /var/www/html/kinnekullebilder/myconf.ini
+Restart=on-abort
