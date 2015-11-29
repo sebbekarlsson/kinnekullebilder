@@ -13,8 +13,17 @@
                 <p>
                     På den här webbsidan får vem som helst publicera foton.
                     Allt som krävs är att du registrerar ett konto.
-                    Genom att registrera ett konto så får du möjligheten att publicera foton och kommentera
+                    Genom att registrera ett konto så får du möjligheten att
+                    publicera foton och kommentera
                     andras foton.
+                </p>
+            </section>
+            <section>
+                <h2>OBS!</h2>
+                <p>
+                    Notera att för tillfället så är den här webbsidan ej
+                    anpassad för mobilen.
+                    Vid förfrågan så kommer detta ske.
                 </p>
             </section>
         </section>
@@ -27,7 +36,16 @@
             <section>
                 <div class='view-gallery'>
                     {% for image in images %}
-                        <a href='/forum/images/image/{{ image[0].id }}'><div class='gallery-image' style='background-image: url("{{ url_for("static", filename="upload/image/" + image[0].filename) }}");'>
+                        <a href='/forum/images/image/{{ image[0].id }}'>
+                            <div
+                                class='gallery-image'
+                                style='background-image:
+                                url("{{
+                                url_for("static",
+                                filename="upload/image/"+
+                                image[0].filename
+                                )
+                                }}");'>
                         </div></a>
                     {% endfor %}
                 </div>
