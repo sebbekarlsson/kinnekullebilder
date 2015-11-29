@@ -16,7 +16,11 @@ def _forum_images():
     if current_user is None:
         return redirect('/')
 
-    images = sess.query(Image, Place).join(Place).order_by(Image.created.desc()).all()
+    images = sess.query(Image, Place)\
+            .join(Place)\
+            .order_by(Image.created.desc())\
+            .limit(156)\
+            .all()
 
     return render_template('forum_images.html', current_user=current_user, images=images)
 
