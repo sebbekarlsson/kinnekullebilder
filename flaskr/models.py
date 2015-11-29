@@ -73,7 +73,8 @@ class Notification(Base, Data):
 
     caused_by = relationship(
         'User',
-        primaryjoin='User.id==Notification.user_caused_id'
+        primaryjoin='User.id==Notification.user_caused_id',
+        order_by='desc(Notification.created)'
       )
 
 def initialize_database():
