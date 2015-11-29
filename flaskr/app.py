@@ -32,11 +32,3 @@ app.register_blueprint(forum_images)
 app.register_blueprint(forum_profile)
 
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
-
-
-def run():
-    initialize_database()
-    app.run(
-        debug=config['flaskr']['debug'],
-        host=config['flaskr']['host']
-    )
