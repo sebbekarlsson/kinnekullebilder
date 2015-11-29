@@ -4,7 +4,8 @@ from sqlalchemy.orm import relationship, sessionmaker
 
 
 Base = declarative_base()
-engine = sa.create_engine('sqlite:///database.sqlite', connect_args={'check_same_thread':False})
+engine = sa.create_engine('sqlite:///database.sqlite',
+        connect_args={'check_same_thread':False})
 
 def new_session():
     
@@ -19,7 +20,8 @@ sess = new_session()
 # --- * MODELS * --- #
 
 class Data():
-    created = sa.Column(sa.TIMESTAMP, server_default=sa.func.now(), onupdate=sa.func.current_timestamp())
+    created = sa.Column(sa.TIMESTAMP, server_default=sa.func.now(),
+            onupdate=sa.func.current_timestamp())
 
 
 class User(Base, Data):
@@ -54,6 +56,15 @@ class Comment(Base, Data):
     image_id = sa.Column(sa.Integer, sa.ForeignKey('images.id'))
     user_id = sa.Column(sa.Integer, sa.ForeignKey('users.id'))
     text = sa.Column(sa.String(700))
+
+
+class Notification(Base, Data):
+    __tablename__ = 'notifications'
+    id = sa.Column(sa.Integer, primary_key=True)
+    image_id = sa.Column(sa.Integer, sa.ForeignKey('images.id'))
+    user_caused_id = sa.Column(sa.Integer, sa.ForeignKey('users.id'))
+    user_id = sa.Column(sa.Integer, sa.ForeignKey('users.id'))
+    type = sa.Column(sa.String(64))
 
 
 def initialize_database():
