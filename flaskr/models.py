@@ -32,7 +32,12 @@ class User(Base, Data):
     last_name = sa.Column(sa.String(128))
     password = sa.Column(sa.String(128))
     image_id = sa.Column(sa.Integer, sa.ForeignKey('images.id'))
-
+    notifications = relationship(
+            'Notification',
+            backref='notifications',
+            foreign_keys='Notification.user_id'
+    )
+   
 
 class Place(Base, Data):
     __tablename__ = 'places'
@@ -66,6 +71,10 @@ class Notification(Base, Data):
     user_id = sa.Column(sa.Integer, sa.ForeignKey('users.id'))
     type = sa.Column(sa.String(64))
 
+    caused_by = relationship(
+        'User',
+        primaryjoin='User.id==Notification.user_caused_id'
+      )
 
 def initialize_database():
     Base.metadata.create_all(engine)

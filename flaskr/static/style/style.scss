@@ -35,6 +35,19 @@ body {
                 transition: .3s;
             }
         }
+
+        .notify {
+           min-width: 16px;
+           min-height: 16px;
+           line-height: 24px;
+           background-color: $black;
+           color: white;
+           display: inline-block;
+           padding: 4px;
+           margin-left: 4px;
+           margin-right: 4px;
+           border-radius: 4px;
+        }
     }
 }
 

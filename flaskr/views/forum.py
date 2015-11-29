@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, abort, redirect
 from flaskr.api.functions import get_current_user
+from flaskr.models import sess, Notification
 
 
 forum = Blueprint('forum', __name__,

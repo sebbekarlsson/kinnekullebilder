@@ -12,5 +12,14 @@ def get_current_user():
 
     return current_user
 
+
 def get_random_string(length):
     return ''.join(random.choice(string.ascii_lowercase + string.digits) for i in range(length))
+
+
+def get_notification_action(type):
+    types = {
+        'comment': 'kommenterat'
+    }
+
+    return types[type]

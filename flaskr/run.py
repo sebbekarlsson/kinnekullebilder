@@ -14,8 +14,12 @@ from flaskr.views.forum_profile import forum_profile
 
 from flaskr.models import initialize_database
 
+from flaskr.api.functions import get_notification_action
+
 
 app = Flask(__name__)
+
+app.jinja_env.globals.update(get_notification_action=get_notification_action)
 
 app.register_blueprint(index)
 app.register_blueprint(register)

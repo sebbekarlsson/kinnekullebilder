@@ -4,22 +4,57 @@
 
 {% block forumContent %}
 
-<div class='text'>
-    <section>
-        <h2>{{ profile_user.first_name }} {{ profile_user.last_name }}</h2>
-        <p>Registrerades: {{ profile_user.created }}</p>
-    </section>
-    <section>
-        <h2>Senaste Bilder</h2>
+<div class='view-split'>
+    <div class='text'>
         <section>
-            <div class='view-gallery'>
-                {% for image in images %}
-                    <a href='/forum/images/image/{{ image.id }}'><div class='gallery-image' style='background-image: url("{{ url_for("static", filename="upload/image/" + image.filename) }}");'>
-                    </div></a>
-                {% endfor %}
-            </div>
+            <h2>{{ profile_user.first_name }} {{ profile_user.last_name }}</h2>
+            <p>Registrerades: {{ profile_user.created }}</p>
         </section>
-    </section>
+        <section>
+            <h2>Senaste Bilder</h2>
+            <section>
+                <div class='view-gallery'>
+                    {% for image in images %}
+                        <a href='/forum/images/image/{{ image.id }}'>
+                            <div
+                                class='gallery-image'
+                                style='
+                                background-image:
+                                url("{{
+                                    url_for(
+                                            "static",
+                                            filename="upload/image/"+image.filename
+                                    )
+                                }}");'
+                            >
+                        </div></a>
+                    {% endfor %}
+                </div>
+            </section>
+        </section>
+    </div>
+    {% if profile_user.id == current_user.id %}
+        <div class='text'>
+            <section>
+                <h2>Notifikationer</h2>
+            </section>
+            <section>
+                <ul class='list'>
+                    {% for notification in current_user.notifications %}
+                        <li>
+                            <a href='/forum/images/image/{{ notification.image_id }}'>
+                                <span>
+                                    {{ notification.caused_by.first_name }}
+                                    har {{get_notification_action(notification.type)}}
+                                     din bild
+                                </span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </div>
+    {% endif %}
 </div>
 
 {% endblock%}

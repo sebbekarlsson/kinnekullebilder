@@ -24,6 +24,17 @@ body {
         cursor: pointer;
         color: #404040;
         transition: .3s; }
+    .nav-bar ul .notify, .nav-bar li .notify {
+      min-width: 16px;
+      min-height: 16px;
+      line-height: 24px;
+      background-color: #404040;
+      color: white;
+      display: inline-block;
+      padding: 4px;
+      margin-left: 4px;
+      margin-right: 4px;
+      border-radius: 4px; }
 
 .left {
   float: left; }
